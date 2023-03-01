@@ -1,0 +1,206 @@
+/**
+ * Meron Asfaw, Winter 2023
+ */
+* {
+    /* background-color: #000; */
+    font-family: sans-serif;
+    margin-bottom: 2%;
+}
+
+body {
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #000;
+    /* background-image: url("../media/BackgroundImg.png"); */
+}
+
+.top{
+    margin:auto;
+}
+
+nav {
+    display:flex;
+    /* position: fixed; */
+    top: 0%;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.button {
+    color: white;
+    padding: 5px 15px;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: transform .5s;
+    background-color: rgb(255, 0, 51);
+    font-size: 15px;
+    text-decoration: none;
+    border: 2px solid transparent;
+}
+
+.background ul li a:hover, a:active {
+    color: rgb(255, 0, 51);
+    text-decoration: underline;
+}
+
+.button:hover {
+    transform: scale(1.2);
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav ul li{
+    display: inline-block;
+    padding: 15px 40px;
+    margin-left: -1%;
+    list-style-type: none;
+    /* background-color: #000; */
+}
+
+nav ul li a{
+    font-family: system-ui;
+    font-size: 15px;
+    color: white;
+}
+
+.major {
+    cursor: pointer;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+span {
+    color: rgb(255, 0, 51);
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+}
+
+.tab {
+    display: inline-block;
+    margin-left: 45px;
+}
+
+.background {
+    background-image: url(../media/Profile.jpg);
+    background-size: 600px 800px;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-blend-mode:inherit;
+    background-position-y: 50px;
+    width: 100%;
+}
+
+.background ul {
+    margin-top: 3%;
+    color: skyblue;
+    list-style-type: none;
+    margin-bottom: 10%;
+}
+ #experience{   /* Header of experiences*/ 
+    font-weight: bold;
+    color: rgb(255, 0, 51);
+    padding-left: 12%;
+ }
+ .work{ /* unordered list experiences */
+    font-family: system-ui;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    width: 50ch;
+    padding: 15px;
+    padding-top: 2%;
+    background-color:rgb(32, 32, 32);
+    border-radius: 10px;
+
+
+ }
+
+ .education{ /* unordered list schools*/
+    font-family: system-ui;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    width: 50ch;
+    color: skyblue;
+    padding: 15px;
+    padding-top: 2%;
+    background-color:rgb(32, 32, 32);
+    border-radius: 10px;
+ }
+
+.skills { /* unordered list skills */
+    font-family: system-ui;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    width: 60ch;
+    color: skyblue;
+    padding: 15px;
+    padding-top: 2%;
+    background-color:rgb(32, 32, 32);
+    border-radius: 10px;
+    
+}
+#skill{
+    font-weight: bold;
+    color: rgb(255, 0, 51);
+    padding-left: 40%;
+    /* text-align: center; */
+}
+
+.mid{
+    margin-top: -25%;
+    margin-left: 50%;
+    padding-bottom: 10%;
+}
+ iframe {
+    width: 405px;
+    height: 200px;
+    border: none;
+    margin-top: -5%;
+ }
+
+ #view {  /* bottom left image */
+    border-radius: 50%;
+    float: left;
+    width: 600px;
+    height:800px;
+    margin-right: 2%;
+ }
+
+ .about ul {  /* Bio */
+    margin-top: 12%;
+    margin-bottom: 25%;
+    font-family: system-ui;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    color: skyblue;
+    padding: 15px;
+    padding-top: 2%;
+    background-color:rgb(32, 32, 32);
+    border-radius: 10px;
+    list-style-type: none;
+ }
+ .bio{
+    text-decoration: none;
+ }
+ #contact li {
+    margin-left: 12%;
+     display: inline-block;
+     padding: 5px 10px;
+     font-family: system-ui;
+     font-size: 15px;
+     letter-spacing: 1.5px;
+     color: skyblue;
+ }
+
+ #contact a:hover, a:active {
+    color: rgb(255, 0, 51);
+    text-decoration: underline;
+ }
+
+ footer p{
+    text-align: center;
+    color:dodgerblue;
+ }

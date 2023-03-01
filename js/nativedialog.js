@@ -1,11 +1,17 @@
+/*
+ * Meron Asfaw
+ */
+
 window.addEventListener('DOMContentLoaded', init);
 
-function init() {
+function init() { 
+    
+    //*Declarations & Definitions of variables */
     let alert = document.getElementById('alert');
     let confirm = document.getElementById('confirm');
     let prompt = document.getElementById('prompt');
     let safer = document.getElementById('safer');
-    let field = document.querySelector('textarea');
+    let txtfield = document.querySelector('textarea');
     let output = document.querySelector('output');
 
     alert.addEventListener('click', (e) => {
@@ -21,8 +27,8 @@ function init() {
 
         setTimeout(() => {
             output.hidden = false;
-            let result = window.confirm('Do you confirm this?');
-            output.firstElementChild = field.value;
+            let result = window.confirm('Confirm please?');
+            output.firstElementChild = txtfield.value;
             output.textContent = `Confirm result: ${result}`;
         }, 0);
     });
@@ -33,7 +39,7 @@ function init() {
         setTimeout(() => {
             output.hidden = false;
             let result = window.prompt('What is your name?');
-            output.firstElementChild = field.value;
+            output.firstElementChild = txtfield.value;
             if (result === '' || result === null) {
                 output.innerHTML = 'User didn’t enter anything';
             } else {
@@ -42,13 +48,13 @@ function init() {
         }, 0);
     });
 
-    saferPrompt.addEventListener('click', function(e) {
+    safer.addEventListener('click', function(e) {
         output.hidden = true;
 
         setTimeout(() => {
             output.hidden = false;
             let result = window.prompt('What is your name?');
-            output.firstElementChild = field.value;
+            output.firstElementChild = txtfield.value;
             if (result === '' || result === null) {
                 output.innerHTML = 'User didn’t enter anything';
             } else {
