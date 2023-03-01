@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="DOMPurify/dist/purify.js"></script>
+    <script src="js/nativedialog.js"></script>
+    <title>In Page JavaScript</title>
+    <style>
+        h1 {
+            font-size: 2.5rem;
+        }
+        output {
+            border: 4px double black;
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Simple Dialog?</h1>
+    <div class="Part_1">
+        <button id="alert">Alert</button>
+        <button id="confirm">Confirm</button>
+        <button id="prompt">Prompt</button>
+        <button id="safer">Safer Prompt</button>
+        <br><br>
+        <hr>
+        <textarea hidden cols="45" placeholder="You have to enter correct values" defaultValue="User didn’t enter anything"></textarea>
+        <br>
+        <output hidden></output>
+    </div>
+</main>
+</body>
+</html>
