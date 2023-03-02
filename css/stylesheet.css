@@ -21,7 +21,7 @@ body {
 nav {
     display:flex;
     /* position: fixed; */
-    top: 0%;
+    /*top: 0%;*/
     align-items: center;
     justify-content: space-between;
 
@@ -101,6 +101,11 @@ span {
     margin-bottom: 10%;
 }
  #experience{   /* Header of experiences*/ 
+    font-weight: bold;
+    color: rgb(255, 0, 51);
+    padding-left: 12%;
+ }
+ #institution{   /* Header of experiences*/
     font-weight: bold;
     color: rgb(255, 0, 51);
     padding-left: 12%;
