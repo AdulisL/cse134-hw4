@@ -1,6 +1,3 @@
-/*
- * Meron Asfaw
- */
 
 window.addEventListener('DOMContentLoaded', init);
 
