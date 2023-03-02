@@ -2,56 +2,66 @@
 
 var form = `<div>
       <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Enter the movie title">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" aria-describedby="titleHelp" 
+        placeholder="Enter professor's name">
       </div>
       
-      <div class="form-group mt-3">
-        <label for="year">Year Released</label>
-        <input type="number" class="form-control" id="year" placeholder="Enter the year released">
+      <div class="form-group mt-4">
+        <label for="name">Course</label>
+        <input type="text" class="form-control" id="course" aria-describedby="titleHelp" 
+        placeholder="Enter the course">
       </div>
       
-      <div class="form-group mt-3">
+      <div class="form-group mt-4">
+        <label for="year">Quarter In</label>
+        <input type="text" class="form-control" id="quarter" placeholder="Enter the quarter & year">
+      </div>
+      
+      <div class="form-group mt-5">
         <label for="rate">Rate</label>
         <select id="rate" name="Rating">
-            <option value="R">R</option>
-            <option value="PG-13">PG-13</option>
-            <option value="NC-17">NC-17</option>
-            <option value="G" selected>G</option>
+            <option selected></option>
+            <option value="*">*</option>
+            <option value="**">**</option>
+            <option value="***">***</option>
+            <option value="****">****</option>
+            <option value="*****">*****</option>  
         </select>
-<!--        <input type="submit" class="form-control" id="list" placeholder="Rate the movie">-->
       </div>
       
-      <button type="submit" class="btn btn-primary mt-3" onclick="save()">Save</button>
+      <button type="submit" class="btn btn-primary mt-3" onclick="save()">Create</button>
+      <button type="reset" class="btn btn btn-danger mt-3" onclick="cancelData()">Cancel</button>
   </div>`;
 
 function table() {
     let table = `<table class="table">
   <thead>
     <tr>
-      <th clsaa="col-1">NO</th>
-      <th clsaa="col-3">Title</th>
-      <th clsaa="col-4">Year</th>
-      <th clsaa="col-3">Rate</th>
-      <th clsaa="col-2">Edit</th>
-      <th clsaa="col-2">Delete</th>
+      <th id="col-1">#</th>
+      <th id="col-2">Professor</th>
+      <th id="col-3">Course</th>
+      <th id="col-4">Quarter In</th>
+      <th id="col-5">Rated</th>
     </tr>
   </thead>
   <tbody>`;
+
     for (let i = 0; i < details.length; i++){
         table = table + `<tr>
       <td>${i + 1}</td>
-      <td>${details[i].title}</td>
-      <td>${details[i].year}</td>
+      <td>${details[i].name}</td>
+      <td>${details[i].course}</td>
+      <td>${details[i].quarter}</td>
       <td>${details[i].rate}</td>
       <td><button type="button" class="btn btn-warning" onclick="edit(${i})">Edit</button></td>
       <td><button type="button" class="btn btn-danger" onclick="deleteData(${i})">Delete</button></td>
     </tr> `;
-    };
-    table = table+`</tbody>
-    </table>`;
+    }
+
+    table = table+`</tbody></table>`;
     document.getElementById("table").innerHTML = table;
-};
+}
 
 document.getElementById("form").innerHTML = form;
 details = [];
@@ -63,75 +73,101 @@ function getData(){
         details = JSON.parse(Data);
     } else {
         setData();
-    };
-};
-function setData() {
-    localStorage.setItem("details", JSON.stringify(details));
-};
+    }
+}
+function setData() { localStorage.setItem("details", JSON.stringify(details)); }
+
+function cancelData(){ document.getElementById("form").innerHTML = form; }
+
 function save() {
-    let title = document.getElementById("title");
-    let year = document.getElementById("year");
+    let name = document.getElementById("name");
+    let course = document.getElementById("course");
+    let quarter = document.getElementById("quarter");
     let rate = document.getElementById("rate");
 
-    if (name.value == 0) {
-        alert("Input is Empty");
+    if (name.value === "") {
+        alert(" Name input is Empty");
+        return
+    }
+    else if (course.value === ""){
+        alert(" Course input is Empty");
+        return
+    }
+    else if (quarter.value === ""){
+        alert(" Quarter & Year input is Empty");
+        return
+    }
+    else if (rate.value === ""){
+        alert(" Rate input is Empty");
         return
     }
     let data = {
-        title: title.value,
-        year: year.value,
+        name: name.value,
+        course: course.value,
+        quarter: quarter.value,
         rate: rate.value
     };
     details.push(data);
     setData();
 
     table();
-    title.value = "";
-    year.value = "";
+    name.value = "";
+    course.value = "";
+    quarter.value = "";
     rate.value = "";
-};
+}
 function deleteData(index) {
     details.splice(index, 1);
     setData();
     table();
-};
+}
 
 function edit(index) {
     let editForm = `<div>
+    
     <div class="form-group">
-    <label for="title">Update Title</label>
-    <input type="text" value="${details[index].title}" class="form-control" id="newTitle" 
-    aria-describedby="titleHelp" placeholder="Update the title">
+        <label for="title">Update Name</label>
+        <input type="text" value="${details[index].name}" class="form-control" id="newName" 
+        aria-describedby="titleHelp" placeholder="Update the name of the professor">
+    </div>
+    
+    <div class="form-group mt-4">
+        <label for="title">Update Department</label>
+        <input type="text" value="${details[index].course}" class="form-control" id="newCourse" 
+        aria-describedby="titleHelp" placeholder="Update the department">
+    </div>
+    <div class="form-group mt-4">
+        <label for="title">Update Quarter</label>
+        <input type="text" value="${details[index].quarter}" class="form-control" id="newQuarter" 
+        aria-describedby="titleHelp" placeholder="Update the quarter & year">
     </div>
   
-    <div class="form-group mt-3">
-    <label for="newYear">Update Year</label>
-    <input type="number" value="${details[index].year}" class="form-control" id="newYear"
-    placeholder="Update the release year">
+    <div class="form-group mt-5">
+        <label for="rate">Rate</label>
+        <select id="newRate" name="Rating">
+            <option value="*">*</option>
+            <option value="**">**</option>
+            <option value="***">***</option>
+            <option value="****">****</option>
+            <option value="*****">*****</option>  
+        </select>
     </div>
     
-    <div class="form-group mt-3">
-        <label for="newRate">Update Rate</label>
-        <select id="newRate" name="Rating">
-            <option value="R">R</option>
-            <option value="PG-13">PG-13</option>
-            <option value="NC-17">NC-17</option>
-            <option value="G" selected>G</option>
-        </select>
-      </div>
-    
     <button type="submit" class="btn btn-primary mt-3" onclick="update(${index})">Update</button>
+    <button type="reset" class="btn btn btn-danger mt-3" onclick="cancelData()">Cancel</button>
 </div>`;
     document.getElementById("form").innerHTML = editForm;
-};
+}
 function update(index) {
-    let newTitle = document.getElementById('newTitle');
-    let newYear = document.getElementById('newYear');
+    let newName = document.getElementById('newName');
+    let newCourse = document.getElementById('newCourse');
+    let newQuarter = document.getElementById('newQuarter');
     let newRate = document.getElementById('newRate');
 
     details[index] = {
-        title: newTitle.value,
-        year: newYear.value,
+        name: newName.value,
+        course: newCourse.value,
+        quarter: newQuarter.value,
         rate: newRate.value
     };
     setData();
