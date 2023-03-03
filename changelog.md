@@ -1,3 +1,4 @@
-# Changes made
-### DOMpurify cdn link added
-### Bootstarp link added
+# Changelog
+## Third-party OSS 
+ - **DOMpurify** cdn link added to cleanse malicious scrypt
+ - **Bootstarp** link added for style beautification
