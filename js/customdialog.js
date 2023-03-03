@@ -37,7 +37,7 @@ function init() {
       if (result === "" || result === null) {
         output.innerHTML = "You did not enter anything";
       } else {
-        output.innerHTML = `Prompt Result: ${result}`;
+        output.innerHTML = `You entered: ${result}`;
       }
     }, 0);
   });
