@@ -147,12 +147,34 @@ span {
     border-radius: 10px;
     
 }
+
 #skill{
     font-weight: bold;
     color: rgb(255, 0, 51);
     padding-left: 40%;
     /* text-align: center; */
 }
+
+.hw4 { /* unordered list skills */
+    font-family: system-ui;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    width: 60ch;
+    color: skyblue;
+    padding: 15px;
+    padding-top: 2%;
+    background-color:rgb(32, 32, 32);
+    border-radius: 10px;
+    justify-content: center;
+}
+
+#hw4{
+    font-weight: bold;
+    color: rgb(255, 0, 51);
+    padding-left: 40%;
+     /*text-align: center;*/
+}
+
 
 .mid{
     margin-top: -25%;
